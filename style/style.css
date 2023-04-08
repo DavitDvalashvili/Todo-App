@@ -1,3 +1,223 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap");
 html {
   font-size: 62.5%;
+  font-family: "Josefin Sans", sans-serif;
+}
+html body {
+  background-image: url(../images/bg-mobile-light.jpg);
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: 100% 20rem;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: top;
+  align-items: center;
+  gap: 4rem;
+  flex-direction: column;
+  padding: 4.8rem 2.4rem 7.2rem 2.4rem;
+}
+html body header {
+  width: 100%;
+  max-width: 42.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+html body header img {
+  height: 2rem;
+  cursor: pointer;
+}
+html body main {
+  width: 100%;
+  max-width: 42.5rem;
+}
+html body main .input-box {
+  background: #FFFFFF;
+  box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+  border-radius: 5px;
+  height: 4.8rem;
+  padding: 1.4rem 2rem 1.4rem 2rem;
+  margin-bottom: 1.6rem;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+html body main .input-box .submit {
+  border-radius: 50%;
+  padding: 0 4.16px;
+  background-color: #ffffff;
+  margin-right: 1.2rem;
+  border: solid 1.5px #E3E4F1;
+  font-weight: 500;
+  font-size: 2rem;
+  line-height: unset;
+  letter-spacing: unset;
+  text-transform: unset;
+  color: #ffffff;
+  cursor: pointer;
+}
+html body main .input-box .submit:hover {
+  background: linear-gradient(135deg, #55DDFF 0%, #C058F3 100%);
+  border-color: #ffffff;
+  transition: all 0.5s ease-out;
+}
+html body main .input-box input {
+  height: 4.8rem;
+  width: 100%;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 12px;
+  letter-spacing: unset;
+  text-transform: -0.167px;
+  color: #9495A5;
+}
+html body main .input-box input:focus {
+  outline: none;
+}
+html body main .tasks-box {
+  background: #FFFFFF;
+  box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+  border-radius: 5px;
+}
+html body main .tasks-box .task {
+  padding: 1.6rem 2rem 1.6rem 2rem;
+  height: 5.2rem;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+  gap: 1.2rem;
+  border-bottom: solid 1px #E3E4F1;
+}
+html body main .tasks-box .task div {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background-color: #ffffff;
+  border: solid 1.5px #E3E4F1;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 5.5px 4.5px;
+}
+html body main .tasks-box .task .task-text {
+  width: 100%;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 12px;
+  letter-spacing: -0.166px;
+  text-transform: unset;
+  color: #494C6B;
+}
+html body main .tasks-box .task .cross {
+  width: 1.3rem;
+  display: none;
+}
+html body main .tasks-box .task:hover .cross {
+  display: block;
+}
+html body main .tasks-box .completed div {
+  border: none;
+  background: linear-gradient(135deg, #55DDFF 0%, #C058F3 100%);
+}
+html body main .tasks-box .completed .task-text {
+  text-decoration-line: line-through;
+  color: #D1D2DA;
+}
+html body main .tasks-box .all-task {
+  padding: 1.6rem 2rem 2.2rem 1.6rem;
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 12px;
+  letter-spacing: -0.166px;
+  text-transform: unset;
+  color: #494C6B;
+}
+html body main .actions {
+  margin-top: 1.6rem;
+  width: 100%;
+  max-width: 42.5rem;
+  height: 4.8rem;
+  background: #FFFFFF;
+  box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.9rem;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 14px;
+  letter-spacing: -0.1944;
+  text-transform: Capitalize;
+  color: #9495a5;
+}
+html body footer {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 14px;
+  letter-spacing: -0.1944;
+  text-transform: Capitalize;
+  color: #9495a5;
+}
+html .dark-theme {
+  background-color: #171823;
+  background-image: url(../images/bg-mobile-dark.jpg);
+}
+html .dark-theme main .input-box {
+  background: #25273D;
+  box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.5);
+}
+html .dark-theme main .input-box .submit {
+  background-color: #25273D;
+  border: solid 1.5px #393A4B;
+  color: #25273D;
+}
+html .dark-theme main .input-box .submit:hover {
+  border-color: #25273D;
+  color: #ffffff;
+}
+html .dark-theme main .input-box input {
+  background-color: #25273D;
+  color: #767992;
+}
+html .dark-theme main .tasks-box {
+  background: #25273D;
+  box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.5);
+}
+html .dark-theme main .tasks-box .task {
+  border-bottom-color: #393A4B;
+}
+html .dark-theme main .tasks-box .task div {
+  background-color: #25273D;
+  border-color: #393A4B;
+}
+html .dark-theme main .tasks-box .task div img {
+  display: none;
+}
+html .dark-theme main .tasks-box .task .task-text {
+  color: #C8CBE7;
+}
+html .dark-theme main .tasks-box .completed div img {
+  display: block;
+}
+html .dark-theme main .tasks-box .completed .task-text {
+  color: #4D5067;
+}
+html .dark-theme main .tasks-box .all-task {
+  color: #5B5E7E;
+}
+html .dark-theme main .actions {
+  background: #25273D;
+  box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.5);
+  color: #5B5E7E;
+}
+html .dark-theme footer {
+  color: #5B5E7E;
 }/*# sourceMappingURL=style.css.map */

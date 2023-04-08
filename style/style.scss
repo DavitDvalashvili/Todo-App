@@ -1,10 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;700&display=swap');
 
 //mixins
-@mixin flexProperty ($horizontal,$vertical,$wrap, $direction) {
+@mixin flexProperty ($horizontal,$vertical) {
     justify-content: $horizontal;
     align-items: $vertical;
-    flex-wrap: $wrap;
-    flex-direction: $direction;
 }
 
 @mixin dimensions ($width, $height) {
@@ -12,11 +11,6 @@
     height: $height;
 }
 
-@mixin background ($Size, $repeat, $position) {
-    background-size: $bcSize;
-    background-repeat: $repeat;
-    background-position: $position;
-}
 @mixin absolute ($top, $right, $left) {
     top: $top;
     right: $right;
@@ -33,5 +27,192 @@
 
 html {
     font-size: 62.5%;
-    
+    font-family: 'Josefin Sans', sans-serif;
+    body {
+        background-image: url(../images/bg-mobile-light.jpg);
+        background-position: top;
+        background-repeat: no-repeat;
+        background-size: 100% 20rem;
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        @include flexProperty(top, center);
+        gap: 4rem;
+        flex-direction: column;
+        padding: 4.8rem 2.4rem 7.2rem 2.4rem;
+        header {
+            width: 100%;
+            max-width: 42.5rem;
+            display: flex;
+            @include flexProperty(space-between, center);
+            img {
+                height: 2rem;
+                cursor: pointer;
+            }
+        }
+        main {
+            width: 100%;
+            max-width: 42.5rem;
+            .input-box {
+                background: #FFFFFF;
+                box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+                border-radius: 5px;
+                height: 4.8rem;
+                padding: 1.4rem 2rem 1.4rem 2rem;
+                margin-bottom: 1.6rem;
+                display: flex;
+                @include flexProperty(left,center);
+                .submit {
+                    border-radius: 50%;
+                    padding: 0 4.16px;
+                    background-color: #ffffff;
+                    margin-right: 1.2rem;
+                    border: solid 1.5px #E3E4F1;
+                    @include textStyle(500, 2rem, unset, unset, unset, #ffffff);
+                    cursor: pointer;     
+                }
+                .submit:hover {
+                    background: linear-gradient(135deg, #55DDFF 0%, #C058F3 100%);
+                    border-color: #ffffff;
+                    transition: all 0.5s ease-out;  
+                }
+                input {
+                    height: 4.8rem;
+                    width: 100%;
+                    @include textStyle(400, 12px, 12px, unset, -0.167px,  #9495A5);
+                }
+                input:focus {
+                    outline: none;
+                }
+            }
+            .tasks-box {
+                background: #FFFFFF;
+                box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+                border-radius: 5px;
+                .task {
+                    padding: 1.6rem 2rem 1.6rem 2rem;
+                    height: 5.2rem;
+                    display: flex;
+                    @include flexProperty(left,center);
+                    gap: 1.2rem;
+                    border-bottom: solid 1px #E3E4F1;
+                    div {
+                        @include dimensions(2rem, 2rem);
+                        border-radius: 50%;
+                        background-color: #ffffff;
+                        border: solid 1.5px #E3E4F1;
+                        cursor: pointer;
+                        display: flex;
+                        @include flexProperty(center,center);
+                        padding: 5.5px 4.5px;;
+                    }
+                    .task-text {
+                        width: 100%;
+                        @include textStyle(400, 12px, 12px, -0.166px, unset, #494C6B);
+                    }
+                    .cross {
+                        width: 1.3rem;
+                        display: none;
+                    }
+                    &:hover .cross {
+                        display: block;  
+                    }
+                }
+                .completed {
+                    div {
+                        border: none;
+                        background: linear-gradient(135deg, #55DDFF 0%, #C058F3 100%);
+                    }
+                    .task-text {
+                        text-decoration-line: line-through;
+                        color: #D1D2DA;
+                    }
+                }
+                .all-task {
+                    padding: 1.6rem 2rem 2.2rem 1.6rem;
+                    @include dimensions(100%,5rem);
+                    display: flex;
+                    @include flexProperty(space-between, center);
+                    @include textStyle(400, 12px, 12px, -0.166px, unset, #494C6B);
+                }
+            }
+            .actions {
+                margin-top: 1.6rem;
+                width: 100%;
+                max-width: 42.5rem;
+                height: 4.8rem;
+                background: #FFFFFF;
+                box-shadow: 0px 35px 50px -15px rgba(194, 195, 214, 0.5);
+                border-radius: 5px;
+                display: flex;
+                @include flexProperty(center, center);
+                gap: 1.9rem;
+                @include textStyle(700, 14px, 14px, -0.1944, Capitalize,  #9495a5);
+            }
+        }
+        footer {
+            @include textStyle(400, 14px, 14px, -0.1944, Capitalize,  #9495a5);
+        }
+    }
+    .dark-theme {
+        background-color:  #171823;
+        background-image: url(../images/bg-mobile-dark.jpg);
+        main {
+            .input-box {
+                background:  #25273D;
+                box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.5);
+                .submit {
+                    background-color: #25273D;
+                    border: solid 1.5px #393A4B;
+                    color: #25273D; 
+                }
+                .submit:hover {
+                    border-color: #25273D;
+                    color: #ffffff;
+                }
+                input {
+                    background-color: #25273D;
+                    color: #767992;
+                }
+            }
+            .tasks-box {
+                background: #25273D;
+                box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.5);
+                .task {
+                    border-bottom-color:  #393A4B;
+                    div {
+                        background-color: #25273D;
+                        border-color: #393A4B;
+                        img {
+                            display: none;
+                        }
+                    }
+                    .task-text {
+                        color:  #C8CBE7;
+                    }
+                }
+                .completed {
+                    div {
+                        img {
+                            display: block;
+                        }
+                    }
+                    .task-text {
+                        color: #4D5067;
+                    }
+                }
+                .all-task {
+                    color:  #5B5E7E;
+                }
+            }
+            .actions {
+                background: #25273D;
+                box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.5);
+                color:  #5B5E7E;
+            }
+        }
+        footer {
+            color: #5B5E7E;
+        }
+    }
 }

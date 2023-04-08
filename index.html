@@ -9,18 +9,41 @@
     <script src="./script.js" defer></script>
     <title>Todo app</title>
   </head>
-  <body>
+  <body class="dark-theme">
     <header>
-      <h1>Todo</h1>
-      <img src="./images/icon-sun.svg" alt="theme switcher">
+      <img src="./images/TODO mobile.svg" alt="Todo">
+      <img id="theme-switch" src="./images/icon-sun.svg" alt="theme switcher">
     </header>
     <main>
-      <label for="task-input"></label>
-      <input id="task-input" name="task-input" type="text">
-      <div class="tasks">
-        <div id="task">task1</div>
+      <div class="input-box">
+        <button type="submit" class="submit">+</button>
+        <label for="task-input"></label>
+        <input id="input-task" name="task-input" type="text" placeholder="Create a new todo…">
+      </div>
+      <div class="tasks-box">
+        <div class="task completed">
+          <div>
+            <img src="./images/icon-check.svg" alt="icon-check">
+          </div>
+          <p class="task-text">Jog around the park 3x</p>
+          <img class="cross" src="./images/icon-cross.svg" alt="">
+        </div>
+        <div class="task">
+          <div>
+            <img src="./images/icon-check.svg" alt="icon-check">
+          </div>
+          <p class="task-text">Jog around the park 3x</p>
+          <img class="cross" src="./images/icon-cross.svg" alt="">
+        </div>
+        <div class="task">
+          <div>
+            <img src="./images/icon-check.svg" alt="icon-check">
+          </div>
+          <p class="task-text">Jog around the park 3x</p>
+          <img class="cross" src="./images/icon-cross.svg" alt="">
+        </div>
         <div class="all-task">
-          <span id="task-number">5</span><span>items left</span>
+          <p id="task-number">5 items left</p>
           <div class="clear">Clear Completed</div>
         </div>
       </div>
