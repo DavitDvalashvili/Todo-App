@@ -1,0 +1,37 @@
+
+//mixins
+@mixin flexProperty ($horizontal,$vertical,$wrap, $direction) {
+    justify-content: $horizontal;
+    align-items: $vertical;
+    flex-wrap: $wrap;
+    flex-direction: $direction;
+}
+
+@mixin dimensions ($width, $height) {
+    width: $width;
+    height: $height;
+}
+
+@mixin background ($Size, $repeat, $position) {
+    background-size: $bcSize;
+    background-repeat: $repeat;
+    background-position: $position;
+}
+@mixin absolute ($top, $right, $left) {
+    top: $top;
+    right: $right;
+    left: $left;
+}
+@mixin textStyle ($weight, $size, $height, $spacing, $transform, $color) {
+    font-weight: $weight;
+    font-size: $size;
+    line-height: $height;
+    letter-spacing: $spacing;
+    text-transform: $transform;
+    color: $color;
+}
+
+html {
+    font-size: 62.5%;
+    
+}

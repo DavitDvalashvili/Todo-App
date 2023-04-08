@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+    <link rel="stylesheet" href="./style/reset.css">
+    <link rel="stylesheet" href="./style/style.css">
+    <script src="./script.js" defer></script>
+    <title>Todo app</title>
+  </head>
+  <body>
+    <header>
+      <h1>Todo</h1>
+      <img src="./images/icon-sun.svg" alt="theme switcher">
+    </header>
+    <main>
+      <label for="task-input"></label>
+      <input id="task-input" name="task-input" type="text">
+      <div class="tasks">
+        <div id="task">task1</div>
+        <div class="all-task">
+          <span id="task-number">5</span><span>items left</span>
+          <div class="clear">Clear Completed</div>
+        </div>
+      </div>
+      <div class="actions">
+        <span class="all">all</span>
+        <span class="active">active</span>
+        <span class="completed">Completed</span>
+      </div>
+    </main>
+    <footer>
+      Drag and drop to reorder list
+    </footer>
+  </body>
+</html>
