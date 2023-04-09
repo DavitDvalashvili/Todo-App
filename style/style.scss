@@ -109,10 +109,12 @@ html {
                     .task-text {
                         width: 100%;
                         @include textStyle(400, 12px, 12px, -0.166px, unset, #494C6B);
+                        cursor: pointer;
                     }
                     .cross {
                         width: 1.3rem;
                         display: none;
+                        cursor: pointer;
                     }
                     &:hover .cross {
                         display: block;  
@@ -133,7 +135,11 @@ html {
                     @include dimensions(100%,5rem);
                     display: flex;
                     @include flexProperty(space-between, center);
-                    @include textStyle(400, 12px, 12px, -0.166px, unset, #494C6B);
+                    @include textStyle(400, 12px, 12px, -0.166px, unset, #9495A5);
+                    cursor: pointer;
+                }
+                .all-task p:hover, .all-task div:hover {
+                    color: #494C6B;
                 }
             }
             .actions {
@@ -148,6 +154,12 @@ html {
                 @include flexProperty(center, center);
                 gap: 1.9rem;
                 @include textStyle(700, 14px, 14px, -0.1944, Capitalize,  #9495a5);
+                span {
+                    cursor: pointer;
+                }
+            }
+            .actions span:hover {
+                color: #494C6B
             }
         }
         footer {
@@ -204,15 +216,93 @@ html {
                 .all-task {
                     color:  #5B5E7E;
                 }
+                .all-task p:hover, .all-task div:hover {
+                    color: #E3E4F1;
+                }
             }
             .actions {
                 background: #25273D;
                 box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.5);
                 color:  #5B5E7E;
             }
+            .actions span:hover {
+                color: #E3E4F1;
+            }
         }
         footer {
             color: #5B5E7E;
+        }
+    }
+}
+
+@media (min-width: 1024px) {
+    html {
+        body {
+            background-image: url(../images/bg-desktop-light.jpg);
+            background-size: 100% 30rem;
+            gap: 4.8rem;
+            padding: 7rem 2.4rem 5.2rem 2.4rem;
+            header {
+                width: 54rem;
+                max-width: unset;
+                img {
+                    height: 4rem;
+                }
+                #theme-switch {
+                    height: 2.6rem;
+                }
+            }
+            main {
+                width: 54rem;
+                max-width: unset;
+                .input-box {
+                    height: 6.4rem;
+                    padding: 2rem 2.4rem;
+                    margin-bottom: 2.4rem;
+                    .submit {
+                        padding: 0 3.99px;
+                        margin-right: 2rem;
+                        font-size: 2.4rem;
+                        height: 2.4rem;
+                    }
+                    input {
+                        height: 6.4rem;
+                        @include textStyle(400, 18px, 18px, unset, -0.25px,  #9495A5);
+                    }
+                }
+                .tasks-box {
+                    .task {
+                        padding: 2rem 2.4rem;
+                        height: 6.4rem;
+                        div {
+                            @include dimensions(2.4rem, 2.4rem);
+                            border-radius: 50%;
+                            padding: 0.65rem 0.75rem;
+                        }
+                        .task-text {
+                            width: 100%;
+                            @include textStyle(400, 18px, 18px, -0.25px, unset, #494C6B);
+                        }
+                        .cross {
+                            width: 1.8rem;
+                        }
+                    }
+                    .all-task {
+                        padding: 1.6rem 2.4rem 2rem 2.4rem;
+                        @include dimensions(54rem,5rem);
+                        @include textStyle(400, 14px, 14px,  -0.1944px, unset, #494C6B);
+                    }
+                }
+                .actions {
+                    margin-top: 2.4rem;
+                    width: 54rem;
+                    max-width: unset;
+                    height: 5rem;
+                }
+            }
+        }
+        .dark-theme {
+            background-image: url(../images/bg-desktop-dark.jpg);
         }
     }
 }

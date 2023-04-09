@@ -109,10 +109,12 @@ html body main .tasks-box .task .task-text {
   letter-spacing: -0.166px;
   text-transform: unset;
   color: #494C6B;
+  cursor: pointer;
 }
 html body main .tasks-box .task .cross {
   width: 1.3rem;
   display: none;
+  cursor: pointer;
 }
 html body main .tasks-box .task:hover .cross {
   display: block;
@@ -137,6 +139,10 @@ html body main .tasks-box .all-task {
   line-height: 12px;
   letter-spacing: -0.166px;
   text-transform: unset;
+  color: #9495A5;
+  cursor: pointer;
+}
+html body main .tasks-box .all-task p:hover, html body main .tasks-box .all-task div:hover {
   color: #494C6B;
 }
 html body main .actions {
@@ -157,6 +163,12 @@ html body main .actions {
   letter-spacing: -0.1944;
   text-transform: Capitalize;
   color: #9495a5;
+}
+html body main .actions span {
+  cursor: pointer;
+}
+html body main .actions span:hover {
+  color: #494C6B;
 }
 html body footer {
   font-weight: 400;
@@ -213,11 +225,102 @@ html .dark-theme main .tasks-box .completed .task-text {
 html .dark-theme main .tasks-box .all-task {
   color: #5B5E7E;
 }
+html .dark-theme main .tasks-box .all-task p:hover, html .dark-theme main .tasks-box .all-task div:hover {
+  color: #E3E4F1;
+}
 html .dark-theme main .actions {
   background: #25273D;
   box-shadow: 0px 35px 50px -15px rgba(0, 0, 0, 0.5);
   color: #5B5E7E;
 }
+html .dark-theme main .actions span:hover {
+  color: #E3E4F1;
+}
 html .dark-theme footer {
   color: #5B5E7E;
+}
+
+@media (min-width: 1024px) {
+  html body {
+    background-image: url(../images/bg-desktop-light.jpg);
+    background-size: 100% 30rem;
+    gap: 4.8rem;
+    padding: 7rem 2.4rem 5.2rem 2.4rem;
+  }
+  html body header {
+    width: 54rem;
+    max-width: unset;
+  }
+  html body header img {
+    height: 4rem;
+  }
+  html body header #theme-switch {
+    height: 2.6rem;
+  }
+  html body main {
+    width: 54rem;
+    max-width: unset;
+  }
+  html body main .input-box {
+    height: 6.4rem;
+    padding: 2rem 2.4rem;
+    margin-bottom: 2.4rem;
+  }
+  html body main .input-box .submit {
+    padding: 0 3.99px;
+    margin-right: 2rem;
+    font-size: 2.4rem;
+    height: 2.4rem;
+  }
+  html body main .input-box input {
+    height: 6.4rem;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 18px;
+    letter-spacing: unset;
+    text-transform: -0.25px;
+    color: #9495A5;
+  }
+  html body main .tasks-box .task {
+    padding: 2rem 2.4rem;
+    height: 6.4rem;
+  }
+  html body main .tasks-box .task div {
+    width: 2.4rem;
+    height: 2.4rem;
+    border-radius: 50%;
+    padding: 0.65rem 0.75rem;
+  }
+  html body main .tasks-box .task .task-text {
+    width: 100%;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 18px;
+    letter-spacing: -0.25px;
+    text-transform: unset;
+    color: #494C6B;
+  }
+  html body main .tasks-box .task .cross {
+    width: 1.8rem;
+  }
+  html body main .tasks-box .all-task {
+    padding: 1.6rem 2.4rem 2rem 2.4rem;
+    width: 54rem;
+    height: 5rem;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 14px;
+    letter-spacing: -0.1944px;
+    text-transform: unset;
+    color: #494C6B;
+  }
+  html body main .actions {
+    margin-top: 2.4rem;
+    width: 54rem;
+    max-width: unset;
+    height: 5rem;
+  }
+  html .dark-theme {
+    background-image: url(../images/bg-desktop-dark.jpg);
+  }
 }/*# sourceMappingURL=style.css.map */
