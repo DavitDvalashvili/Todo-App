@@ -167,6 +167,9 @@ html body main .actions {
 html body main .actions span {
   cursor: pointer;
 }
+html body main .actions .active-filter {
+  color: #3A7CFD;
+}
 html body main .actions span:hover {
   color: #494C6B;
 }
