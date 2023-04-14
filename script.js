@@ -34,6 +34,9 @@ function manageTasks() {
 manageTasks();
 
 
+let leftTasks = {left: 0}
+
+
 
 const tasks_box = document.querySelector(".tasks-box");
 function addTask() {
@@ -63,32 +66,138 @@ function addTask() {
         task.append(cross);
         //clears the input
         input.value = "";
-    }
-    let checkTasks = document.querySelectorAll(".task");
-    //console.log(checkTasks);
-    for(let i=0; i<checkTasks.length; i++) {
-        if(i % 2 ==0){
-            checkTasks[i].addEventListener("click", (event) => {
-                let parentElement = event.target.parentNode;
-                if(event.target.tagName.toLowerCase() === "img") {
-                    parentElement.parentNode.classList.toggle("completed")
-                } else {
-                    parentElement.classList.toggle("completed")
-                }
-            })
-        } else {
-            checkTasks[i+1].addEventListener("click", (event) => {
-                let parentElement = event.target.parentNode;
-                if(event.target.tagName.toLowerCase() === "img") {
-                    parentElement.parentNode.classList.toggle("completed")
-                } else {
-                    parentElement.classList.toggle("completed")
-                }
-            })
-        }
 
+        //calculates and displays num of left elements
+        const left = document.querySelectorAll(".task:not(.completed)");
+        leftTasks.left = left.length;
+        console.log(leftTasks.left);
+        document.querySelector("#task-number").textContent = leftTasks.left;
+
+
+        // add check_uncheck task function
+        let checkTasks = document.querySelectorAll(".task");
+        check_uncheck_task(checkTasks);
+    }
+    //add removeTask function
+    let crosses = document.querySelectorAll(".cross");
+    removeTask(crosses);
+
+    //add clearTasks function
+    let clearButton = document.querySelector(".clear");
+    let checkTasks = document.querySelectorAll(".task");
+    clearTasks(clearButton, checkTasks);
+
+    //add filter function
+    let filterButtons = document.querySelectorAll(".actions span");
+    filterButtons.forEach(filterBtn => {
+        filterBtn.addEventListener("click", (event) => {
+            //remove blue color to the filter button
+            filterButtons.forEach(filterBtn => {
+                filterBtn.classList.remove("active-filter");
+            })
+            //displays filtered elements
+            if(event.target.classList.contains("all")) {
+                displayAll(checkTasks);
+            } else if(event.target.classList.contains("active")) {
+                displayActive(checkTasks);
+            } else if(event.target.classList.contains("completed")) {
+                displayCompleted(checkTasks);
+            }
+            //add blue color to the filter buttons
+            event.target.classList.add("active-filter");
+        })
+    })
+}
+
+//function check completed tasks and uncheck them.
+function check_uncheck_task(parameter) {
+    //loop through tasks
+    for(let i=0; i< parameter.length; i++) {
+        if(i == 0){
+            parameter[i].addEventListener("click", (event) => {
+                let parentElement = event.target.parentNode;
+                if(event.target.tagName.toLowerCase() === "img") {
+                    if(parentElement.parentNode.classList.contains("completed")){
+                        parentElement.parentNode.classList.remove("completed");
+                        leftTasks.left = leftTasks.left +1;
+                    } else {
+                        parentElement.parentNode.classList.add("completed");
+                        leftTasks.left = leftTasks.left -1;
+                    }
+                } else if(!event.target.classList.contains("task")) {
+                    if(parentElement.classList.contains("completed")){
+                        parentElement.classList.remove("completed");
+                        leftTasks.left = leftTasks.left +1;
+                    } else {
+                        parentElement.classList.add("completed");
+                        leftTasks.left = leftTasks.left -1;
+                    }
+                    
+                }
+                document.querySelector("#task-number").textContent = leftTasks.left;
+            })
+        } 
     }
 }
+
+//remove tasks when click on cross icon
+function removeTask(crossElements) {
+    crossElements.forEach(cross => {
+        cross.addEventListener("click", (event) => {
+            let parentElement = event.target.parentNode;
+            if(parentElement.classList.contains("completed")) {
+                parentElement.remove();
+            }
+        })
+    })
+}
+
+//remove all tasks.
+function clearTasks(clearBtn, taskElements) {
+    clearBtn.addEventListener("click", () => {
+        taskElements.forEach(task => {
+            if(task.classList.contains("completed")){
+                task.remove();
+            }
+        })
+    })
+}
+
+
+
+//displays all tasks on the screen
+function displayAll(taskElements) {
+    taskElements.forEach(taskElement => {
+        taskElement.style.display = "flex"
+    })
+} 
+
+//displays completed tasks on the screen
+function displayCompleted(taskElements) {
+    taskElements.forEach(taskElement => {
+        if(!taskElement.classList.contains("completed")){
+            taskElement.style.display = "none"
+        } else if(taskElement.classList.contains("completed")) {
+            taskElement.style.display = "flex"
+        }
+    })
+}
+
+//displays active tasks on the screen
+function displayActive(taskElements) {
+    taskElements.forEach(taskElement => {
+        if(taskElement.classList.contains("completed")){
+            taskElement.style.display = "none"
+        } else if(!taskElement.classList.contains("completed")){
+            taskElement.style.display = "flex"
+        }
+    })
+}
+
+
+    
+
+
 
 
 
